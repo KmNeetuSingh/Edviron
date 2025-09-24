@@ -14,4 +14,12 @@ const orderStatusSchema = new mongoose.Schema({
   gateway_response: Object
 }, { timestamps: true });
 
+// Indexes for performance optimization
+orderStatusSchema.index({ collect_id: 1 });
+orderStatusSchema.index({ status: 1 });
+orderStatusSchema.index({ payment_time: -1 });
+orderStatusSchema.index({ gateway_transaction_id: 1 });
+orderStatusSchema.index({ collect_id: 1, status: 1 });
+orderStatusSchema.index({ collect_id: 1, payment_time: -1 });
+
 module.exports = mongoose.model('OrderStatus', orderStatusSchema);

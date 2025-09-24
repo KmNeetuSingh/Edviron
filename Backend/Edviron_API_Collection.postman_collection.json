@@ -1,0 +1,409 @@
+{
+  "info": {
+    "name": "Edviron School Payment API",
+    "description": "Complete API collection for School Payment and Dashboard Application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "school_id",
+      "value": "65b0e6293e9f76a9694d84b4",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"user\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    const response = pm.response.json();",
+                  "    if (response.token) {",
+                  "        pm.collectionVariables.set('jwt_token', response.token);",
+                  "    }",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Create Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_amount\": 1000,\n  \"student_info\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@student.com\",\n    \"phone\": \"9999999999\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments/create-payment",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "create-payment"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"school_id\": \"{{school_id}}\",\n  \"trustee_id\": \"65b0e6293e9f76a9694d84b5\",\n  \"order_amount\": 1000,\n  \"student_info\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@student.com\"\n  },\n  \"gateway_name\": \"PhonePe\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments/create-order",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "create-order"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Order Status",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"65b0e6293e9f76a9694d84b4\",\n  \"status\": \"success\",\n  \"transaction_amount\": 1000,\n  \"payment_mode\": \"upi\",\n  \"gateway_transaction_id\": \"TXN123456789\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments/update-order-status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "update-order-status"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Orders by School",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/payments/school/{{school_id}}/orders",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "school", "{{school_id}}", "orders"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Get All Transactions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/transactions?page=1&limit=10&sort=createdAt&order=desc&status=success&gateway=PhonePe&school_id={{school_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "transactions"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "createdAt"
+                },
+                {
+                  "key": "order",
+                  "value": "desc"
+                },
+                {
+                  "key": "status",
+                  "value": "success"
+                },
+                {
+                  "key": "gateway",
+                  "value": "PhonePe"
+                },
+                {
+                  "key": "school_id",
+                  "value": "{{school_id}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transactions by School",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/transactions/school/{{school_id}}?page=1&limit=10&sort=createdAt&order=desc",
+              "host": ["{{base_url}}"],
+              "path": ["api", "transactions", "school", "{{school_id}}"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "sort",
+                  "value": "createdAt"
+                },
+                {
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transaction Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/transactions/transaction-status/ORD_1758686752348_5trun3j3v",
+              "host": ["{{base_url}}"],
+              "path": ["api", "transactions", "transaction-status", "ORD_1758686752348_5trun3j3v"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transaction Statistics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/transactions/stats",
+              "host": ["{{base_url}}"],
+              "path": ["api", "transactions", "stats"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "Process Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": 200,\n  \"order_info\": {\n    \"order_id\": \"ORD_1758686752348_5trun3j3v\",\n    \"order_amount\": 2000,\n    \"transaction_amount\": 2200,\n    \"gateway\": \"PhonePe\",\n    \"bank_reference\": \"YESBNK222\",\n    \"status\": \"success\",\n    \"payment_mode\": \"upi\",\n    \"payemnt_details\": \"success@ybl\",\n    \"Payment_message\": \"payment success\",\n    \"payment_time\": \"2025-04-23T08:14:21.945+00:00\",\n    \"error_message\": \"NA\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/webhooks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "webhooks"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Error Testing",
+      "item": [
+        {
+          "name": "Test Authentication Error",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_amount\": 1000,\n  \"student_info\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@student.com\",\n    \"phone\": \"9999999999\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments/create-payment",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "create-payment"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Test Validation Error",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order_amount\": -100,\n  \"student_info\": {\n    \"name\": \"\",\n    \"email\": \"invalid-email\",\n    \"phone\": \"\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/payments/create-payment",
+              "host": ["{{base_url}}"],
+              "path": ["api", "payments", "create-payment"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 00:55:18:5518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 00:55:18:5518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mSIGINT received, shutting down gracefully\u001b[39m","timestamp":"2025-09-24 00:55:44:5544"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mProcess terminated\u001b[39m","timestamp":"2025-09-24 00:55:44:5544"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 00:56:13:5613"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 00:56:13:5613"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 00:56:20:5620"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 00:56:20:5620"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 00:59:05:595"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 00:59:05:595"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:00:18:018"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:00:18:018"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:02:53:253"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:02:53:253"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:03:22:322"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:03:22:322"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:03:40:340"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:03:40:340"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in test mode on port 5001\u001b[39m","timestamp":"2025-09-24 01:04:15:415"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5001/\u001b[39m","timestamp":"2025-09-24 01:04:15:415"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:06:58:658"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check available at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:06:58:658"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:07:32:732"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:07:32:732"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:10:56:1056"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:10:56:1056"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:11:12:1112"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:11:12:1112"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 01:11:23:1123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 01:11:23:1123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running in undefined mode on port 5000\u001b[39m","timestamp":"2025-09-24 07:44:44:4444"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mHealth check at http://localhost:5000/\u001b[39m","timestamp":"2025-09-24 07:44:44:4444"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mSIGINT received, shutting down gracefully\u001b[39m","timestamp":"2025-09-24 07:44:58:4458"}
